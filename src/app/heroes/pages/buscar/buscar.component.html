@@ -1,0 +1,32 @@
+<div class="flex flex-column p-2">
+<h3>Buscardor</h3>
+<mat-form-field>
+<mat-label>Buscador de heroes</mat-label>
+<!-- para usar el formulario reactivo es poner elformControl y el nombre de la variable que vamos a usar -->
+<!-- [matAutocomplete]="auto" lo usamos como referencia a donde va implementar el codigo html ya viene la 
+configuracion con el componenete solo nos muestra el html -->
+<!-- #auto="matAutocomplete" es donde va ir toda la logica y el mat option nos ayuda a implementara codigo por si no existe
+algo o si no cumple la setencia -->
+<!-- de ponemos una opcion por si no existe la consulta a nuestro servicio en el mat-option2  -->
+<input
+type="text"
+matInput
+[formControl]="controlFormulario"
+(input)="buscarHeroe()"
+[matAutocomplete]="auto"
+/>
+<!-- optionSelected es un evento propio de matAutocomplete solo de enviamos el eventeo
+esto sirve para mostrar en la caja la opcion que elijimos
+-->
+<mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="seleccionarOpcion($event)">
+    <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+    {{heroe.superhero}}</mat-option>
+    
+    <mat-option *ngIf="heroes.length === 0 && controlFormulario.value && controlFormulario.value.length > 0" value="">
+      No se encuentra datos para esta {{controlFormulario.value}} consulta</mat-option>
+  
+  </mat-autocomplete>
+  
+</mat-form-field>
+
+</div>

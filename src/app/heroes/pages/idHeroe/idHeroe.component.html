@@ -1,0 +1,47 @@
+<ng-template #loading>
+<mat-grid-list cols="1">
+<mat-grid-tile>
+<mat-spinner></mat-spinner>
+</mat-grid-tile>
+</mat-grid-list>
+
+</ng-template>
+
+
+<div *ngIf="hero; else loading" class="hero_style" >
+    <div > 
+        <mat-card-header>
+            <mat-card-title>{{hero.alter_ego}}</mat-card-title>
+            <mat-card-subtitle>{{hero.superhero}}</mat-card-subtitle>
+        </mat-card-header>
+          <!-- <img mat-card-image src="../../../../assets/heroes/{{data.id}}.jpg"> -->
+    <!-- es para hacer nuesro pipe primero enviamos la data y despues hacemos referencia 
+    al nombre como se llama nuestro pipe -->
+    <img mat-card-image [src]=" hero | imagen" [alt]="hero.superhero" >
+    
+    </div>
+    <div class="informacion">
+    <mat-card-content >
+        <mat-list>
+        <mat-list-item>{{hero.first_appearance}}</mat-list-item>
+        <mat-list-item>{{hero.characters}}</mat-list-item>
+        <mat-list-item>{{hero.publisher}}</mat-list-item>
+        <mat-list-item>{{hero.alter_ego}}</mat-list-item>
+        </mat-list>
+        <button
+        mat-button
+        color="warn"
+        (click)="Regresar()"
+        >
+        Volver
+        
+        </button>
+        </mat-card-content>
+      
+    
+    </div>
+    
+    
+
+    
+</div>

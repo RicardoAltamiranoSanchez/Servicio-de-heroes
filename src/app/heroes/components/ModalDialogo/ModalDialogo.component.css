@@ -1,0 +1,32 @@
+.Modal{
+background-color:grey;
+
+border-color:red;
+text-align:center;
+color:white;
+
+    position: relative;
+ 	width: 360px;
+ 	
+ 	border-radius: 10px;
+ 	backdrop-filter:blur(5px);
+ 	box-shadow: 0 25px 45px rgba(0,0,0,0.1);
+ 	
+}
+.separador{
+    flex: 1 1 auto;
+}
+button{
+    border-radius: 10px;
+    
+      
+}
+
+.botonSuccess{
+background-color:rgb(34, 190, 34);
+}
+.botonCancel{
+
+background-color:rgb(238, 238, 37);
+
+}

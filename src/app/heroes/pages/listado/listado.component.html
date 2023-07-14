@@ -1,0 +1,25 @@
+<h1 class="text-center">Listado de Heroes</h1>
+<!-- metode de grid material para crear un linea de separacion   -->
+<mat-divider></mat-divider>
+<br>
+<!-- utilizamos el  fxLayout que instalamos para crear las cards y su separaciones  -->
+<!-- acomodamos nuestras card y si es de tipo movil de ponemos Column  -->
+<div fxLayout="row wrap"
+     fxLayout.xs="Column"
+     fxFlexAlign="center"
+     fxLayoutGap="20px"
+>
+<!-- los fxFlex son metodos de responsive  -->
+<div fxFlex="20"
+     fxFlex.lg="15"
+
+     fxFlex.sm="30"
+
+
+*ngFor="let heroe of  Heroes; ">
+    
+    <heroeTarjetComponet  [data]="heroe"></heroeTarjetComponet>
+    
+    </div>
+   
+</div>

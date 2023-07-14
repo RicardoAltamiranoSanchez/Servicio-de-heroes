@@ -1,0 +1,33 @@
+<mat-card > 
+    <mat-card-header>
+        <mat-card-title>{{data.superhero}}</mat-card-title>
+        <mat-card-subtitle>{{data.alter_ego}}</mat-card-subtitle>
+    </mat-card-header>
+    <!-- <img mat-card-image src="../../../../assets/heroes/{{data.id}}.jpg"> -->
+    <!-- es para hacer nuesro pipe primero enviamos la data y despues hacemos referencia 
+    al nombre como se llama nuestro pipe -->
+    <img mat-card-image [src]=" data | imagen">
+    <mat-card-content>
+    <h3>{{data.publisher}}</h3>
+    <span>Primera aparicion: <strong>{{data.first_appearance}}</strong></span>
+    <br>
+    <span>Personajes <strong>{{data.characters}}</strong></span>
+    </mat-card-content>
+    <mat-card-actions>
+        <a
+        mat-button
+        mat-raised
+        color="warn"
+        routerLink="informacion/{{data.id}}"
+        >
+        <mat-icon>more_horiz</mat-icon>
+        mas..
+    </a>
+        </mat-card-actions>
+        <button mat-button color="success"
+        color="success"
+        routerLink="editar/{{data.id}}">
+            <span>Editar</span>
+            </button>
+            
+</mat-card>

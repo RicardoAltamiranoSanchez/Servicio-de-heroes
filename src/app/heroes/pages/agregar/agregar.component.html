@@ -1,0 +1,120 @@
+ <h1>
+<!-- indicamos si existe el hero que nos muestre la palabra actualizar si no es asi
+que noss muestre la de crear y en el if nos muestre el nombre del heroe si existe --> 
+    {{ obtenerHeroe.id ? "Actualizar" : "Crear"}}
+    héroe
+    <small *ngIf="obtenerHeroe.id">{{ obtenerHeroe.superhero}}</small>
+</h1>
+<button
+mat-button
+color="warn"
+(click)="Regresar()"
+>
+Volver
+
+</button>
+<mat-divider class="mb-2"></mat-divider>
+
+<div class="hero_style" id="grid-agregar">
+
+    <div class="col-12 sm:col-6">
+        <mat-card>
+            <mat-card-content>
+<!-- ponemos el formGroupo por asi va en el html y en typescript va como FormGroup
+y lo igualamos como vienen en typeScript a nuestra variable que la inicializamos a igual
+a un FormGroup esto seria un formulario reactivo en cada de sus componentes
+va los formControlName con el nombre que de pusimos dentro del FormGroup pero sin los [] ya que si 
+lo ponemos seria dinamico lo ponemos como tipo string  -->
+                <form class="grid" [formGroup]="heroFormulario" (ngSubmit)="submit()">
+
+                    <mat-form-field class="col-12 sm:col-6">
+                        <mat-label>Super héroe</mat-label>
+                        <input matInput type="text"
+                        required 
+                        formControlName="superhero"
+                        />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12 sm:col-6">
+                        <mat-label>Alter ego</mat-label>
+                        <input 
+                        matInput 
+                        type="text"
+                        formControlName="alter_ego"
+                        required
+                        />
+                    </mat-form-field>
+
+
+                    <mat-form-field class="col-12">
+                        <mat-label>Primera aparición</mat-label>
+                        <input 
+                        matInput
+                        type="text"
+                        formControlName="first_appear"
+                        required />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>Personajes</mat-label>
+                        <input 
+                        matInput 
+                        type="text" 
+                        formControlName="characters"
+                        required />
+                    </mat-form-field>
+
+                    <mat-form-field class="col-12">
+                        <mat-label>Creador</mat-label>
+                        <mat-select
+                        formControlName="publisher"
+                        required=""
+                        >
+                            <mat-option *ngFor="let publisher of publishers" [value]="publisher.id">
+                                {{ publisher.desc }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    
+                    
+                    <mat-form-field class="col-12">
+                        <mat-label>Imagen Alternativa</mat-label>
+                        <input 
+                        matInput 
+                        type="text" 
+                        formControlName="alt_img"
+                        required />
+                    </mat-form-field>
+                </form>
+
+                <div class="flex justify-content-between">
+                    <!-- este boton solo se va mostra si existe un erroe -->
+                    <button 
+                    
+                    *ngIf="obtenerHeroe.id"
+                    (click)="eliminarHeroe()"
+                    mat-flat-button
+                    color="warn">
+                        Borrar
+                    </button>
+                    <span></span>
+                    
+                    <button mat-flat-button color="primary" (click)="submit()">
+                        <mat-icon>save</mat-icon>
+                        Guardar
+                    </button>
+                </div>
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="col-12 sm:col-6">
+
+        <mat-card>
+        <!-- es una funcion que con get por eso no de ponemos los () -->
+            <img [src]="obtenerHeroe | imagen" alt="imagen del héroe" mat-card-image>
+        </mat-card>
+
+    </div>
+</div>

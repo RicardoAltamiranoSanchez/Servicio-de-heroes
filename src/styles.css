@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.hero_style{
+
+text-align: center;
+display:grid;/*usamos grid para acomadar los productos */
+grid-template-columns: repeat(2,1fr);/*usamos una propiedad de grip para acomolar */
+gap:2rem;
+
+}
+.col-12 {
+    width: 100%;
+    
+  }
+  
+  @media (min-width: 576px) {
+    .sm\:col-6 {
+      width: 50%;
+    }
+  }
+
+.informacion{
+
+   
+    font-size: 40px;
+    line-height: 2;
+    /* padding-left: %; */
+
+
+}

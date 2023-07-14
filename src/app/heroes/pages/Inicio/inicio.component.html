@@ -1,0 +1,58 @@
+<!-- Este es para el sidenav y el fullScreen es para abarque toda la pantall -->
+<mat-sidenav-container fullscreen  >
+<!-- aqui va ir lo que va ir dentro del sinenav osea el menu el push es una animacion de nav-->
+<mat-sidenav  #sidenav mode="push">
+    <mat-toolbar color="primary">
+        <span>Menu</span>
+<span class="spacer"></span>
+        <!-- es para que nos muestre el icono del boton para el slider -->
+        <!-- el toggle() es para que nos muestre el menu donde esta el #sidenav -->
+        <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+        </button>
+        </mat-toolbar>
+        <mat-nav-list>
+        <!-- el routel link para decir la ruta o el path     el mat-list-item es para acomoda   -->
+           <a routerLink="./listado" mat-list-item (click)="sidenav.toggle()">
+           <mat-icon mat-list-icon>label</mat-icon>
+           
+           <span>Listado de heroes</span>
+           </a>
+           
+           <a routerLink="./agregar" mat-list-item (click)="sidenav.toggle()">
+            <mat-icon mat-list-icon>add</mat-icon>
+            <span>Agregar heroe</span>
+            </a>
+            
+            <a routerLink="./buscar" mat-list-item (click)="sidenav.toggle()">
+                <mat-icon mat-list-icon>search</mat-icon>
+                <span>buscar heroe</span>
+                </a>        
+        </mat-nav-list>
+</mat-sidenav>
+<!-- es para que nos muestre la pantalla de arriba de la navegacion -->
+<mat-toolbar>
+<!-- es para que nos muestre el icono del boton para el slider -->
+<!-- el toggle() es para que nos muestre el menu donde esta el #sidenav -->
+<button mat-icon-button (click)="sidenav.toggle()">
+<mat-icon>menu</mat-icon>
+
+</button>
+
+<!-- la clase con el spacer es para acomodar el salir al final de la otra parte superio con el stylo css  -->
+<span class="spacer">
+</span>
+
+<button mat-button>
+    Salir
+    </button>
+    
+</mat-toolbar>
+
+<!-- hacemos una clase container para acomodar los datos de las paginas   -->
+<div class="container">
+    <!-- para que nos lea las rutas o los paths -->
+    <router-outlet></router-outlet>
+</div>
+
+</mat-sidenav-container>
